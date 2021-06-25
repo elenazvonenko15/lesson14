@@ -2,9 +2,13 @@ function getPolindrom(originalNum) {
     let steps = 0;
 
     const reverseNumber = num => {
-        const firstChar = 0;
-        const sub = 1;
-        return Number(String(num) ? reverseNumber(String(num).substring(sub)) + String(num)[firstChar] : null);
+        const numStr = String(num);
+        const firstCharIndex = 0;
+        const startIndex = 1;
+        if (!numStr) {
+            return '';
+        }
+        return Number(reverseNumber(numStr.substring(startIndex)) + numStr[firstCharIndex]);
     };
 
     function calcPolindrom(num = originalNum) {
@@ -26,4 +30,5 @@ function getPolindrom(originalNum) {
     return calcPolindrom();
 
 }
-getPolindrom(+prompt('Enter number'));
+const someNumber = 192;
+getPolindrom(someNumber);
