@@ -13,15 +13,14 @@ function getPolindrom(originalNum) {
 
     function calcPolindrom(num = originalNum) {
         try {
-            const result = num + reverseNumber(num);
-            steps++;
-            if (result === reverseNumber(result)) {
+            if (num === reverseNumber(num)) {
                 return {
-                    result,
+                    result: num,
                     steps,
                 };
             }
-            return calcPolindrom(result);
+            steps++;
+            return calcPolindrom(num + reverseNumber(num));
 
         } catch {
             throw new Error(`${num} is Lychrel number`);
